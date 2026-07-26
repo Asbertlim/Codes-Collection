@@ -1,0 +1,29 @@
+import random
+dic = ["world", "phone", "throw", "hello", "walls", "balls", "create", "books", "maths", "rocks", "stone", "names", "smart", "their", "thief", "seven", "basket", "coding"]
+
+print("------------------------------------------------")
+print("             Welcome to Wordle                  ")
+print("------------------------------------------------\n")
+
+ref = "*****"
+secret = dic[random.randint(0, len(dic)-1)]
+life = 7
+print("You have 7 lives.")
+
+while True:
+    guess = input("Enter a five-letter word: ")
+    
+    if life == 0:
+        print("You lost!")
+        break
+    for char in range(len(guess)):
+        if guess != secret:
+            life -= 1
+            
+        if guess[char] == secret[char]:
+            ref[char] = guess[char]
+        elif guess == secret:
+            print("You won.")
+            break
+    print(ref)
+        
