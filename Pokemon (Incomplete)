@@ -1,0 +1,69 @@
+import random
+
+print("---------------------------------------------------")
+print("             Welcome to Pokemon!                   ")
+print("---------------------------------------------------\n")
+
+print("You are to select a starter pokemon from the following:")
+print("1. Charmander\n HP: 80 \n ATK: 20")
+print("2. Squirtle\n HP: 90\n ATK: 15")
+print("3. Bulbasaur\n HP: 100\n ATK: 10")
+choice = int(input("Select your starter pokemon (1/2/3): "))
+
+if choice == 1:
+    pkn = "Charmander"
+    hp = 80
+    atk = 20
+elif choice == 2:
+    pkn = "Squirtle"
+    hp = 90
+    atk = 15
+elif choice == 3:
+    pkn = "Bulbasaur"
+    hp = 100
+    atk = 10
+else:
+    print("Invalid choice.")
+    
+print("Great! Now as you have your very first Pokemon, go and explore the world!")
+
+while hp > 0:
+    
+    enc = ["Rattata", "Pidgey", "Caterpie"]
+    pkn2 = enc[random.randint(0,2)]
+    
+    if pkn2 == enc[0]:
+        p2 = "Rattata"
+        hp2 = 50
+        atk2 = 10
+    elif pkn2 == enc[1]:
+        p2 = "Pidgey"
+        hp2 = 50
+        atk2 = 15
+    elif pkn2 == enc[2]:
+        p2 = "Caterpie"
+        hp2 = 30
+        atk2 = 5
+    
+    print(f"A wild {p2} appears!")
+    while hp > 0  and hp2 > 0:
+        move = int(input("1. Attack\n 2. Run\n Your move: "))
+        if move == 1:
+            if hp > 0:
+                print(f"{pkn} attacks!")
+                hp2 -= atk
+                print(f"{p2} has {hp2} HP left.")
+            
+            if hp2 <= 0:
+                print(f"{p2} fainted.")
+                continue
+            else:
+                print(f"{p2} attacks!")
+                hp -= atk2
+                print(f"{pkn} has {hp} HP left.")
+            if hp <= 0:
+                print("You lost.")
+                break
+                
+            
+            
