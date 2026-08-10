@@ -1,0 +1,34 @@
+def analyzer(nums):
+    print("=============================================\n")
+    print("             Number Analyzer                 \n")
+    print("=============================================\n")
+    
+    while True:
+        print("Features: ")
+        print("1. Show Frequency")
+        print("2. Find Most Frequent Number ")
+        print("3. Find Missing Number")
+        print("4. Find Largest Pair Product")
+        print("5. Show Statistics")
+        print("6. Exit")
+        
+        choice = int(input("Select a feature: "))
+        
+        if choice == 1:
+            frequency = {}
+            for num in nums:
+                if num not in frequency:
+                    frequency[num] = 1
+                else:
+                    frequency[num] += 1
+            print(frequency)
+        
+        if choice == 2:
+            best_count = 0
+            best_num = None
+            for num in nums:
+                if (frequency[num] > best_count or (frequency[num] == best_count and (best_num is None or num < best_num))):
+                    
+                    best_count = frequency[num]
+                    best_num = num
+            print(f"Most frequent number: {best_num}")
