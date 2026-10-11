@@ -1,0 +1,45 @@
+print("================================================")
+print("    Welcome to the game     ")
+print("================================================")
+
+
+char = {
+  "wizard": [100, 30],
+  "knight": [80, 40],
+  "bomber": [60, 50],
+  "archer": [70, 40]
+}
+
+atk_com = {
+  "goblin": [10],
+  "dragon": [20],
+  "minion": [10]
+}
+
+df_com = {
+  "doctor": [10],
+  "elf": [5]
+}
+
+print("The characters below are to be selected based on [HP, DMG]")
+print(char)
+while True:
+  char_inp = input("Enter your character: ").lower()
+  print("")
+  if char_inp not in char:
+    print("Character not found. Please try again.")
+  else:
+    break
+
+print(atk_com)
+print("These are offensive companions that help you to deal damage\n")
+print(df_com)
+print("These are defensive companions that help you to heal HP\n")
+
+while True:
+  com_inp = input("Enter your companion: ").lower()
+  if com_inp in atk_com or com_inp in df_com:
+    break
+  else:
+    print("Character not found. Please try again.\n")
+
